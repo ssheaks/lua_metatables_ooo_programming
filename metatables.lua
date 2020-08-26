@@ -12,11 +12,17 @@ function vector3d.new(x, y, z)
     return v, meta
 end
 
+-- metatable adding 2 vectors
 function vector3d.add(v1, v2)
     return vector3d.new((v1.x + v2.x), (v1.y + v2.y), (v1.z + v2.z))
 end
 meta.__add = vector3d.add
 
+--metatable subtracting 2 vectors
+function vector3d.sub(v1, v2)
+    return vector3d.new((v1.x - v2.x), (v1.y - v2.y), (v1.z - v2.z))
+end
+meta.__sub = vector3d.sub
 
 -- use tostring method to print table
 function vector3d.tostring(v)
@@ -33,6 +39,7 @@ velocity = vector3d.new(10.0, -3.5, 0.0)
 setmetatable(velocity, meta)
 
 local result = position + velocity
+local subresult = position - velocity
 -- checking table values
 for i, val in pairs(position) do
     print(i.." ,"..val)
@@ -44,3 +51,4 @@ end
 print(position)
 print(velocity)
 print (result)
+print(subresult)
