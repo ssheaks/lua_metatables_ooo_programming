@@ -13,3 +13,17 @@ BankAccount = {
 function BankAccount:deposit(amount)
     self.balance = self.balance + amount
 end
+
+function BankAccount:withdraw(ammount)
+    self.balance = self.balance - amount
+end
+
+------------------------------------
+-- Define the class constructor
+------------------------------------
+function BankAccount:new(t)
+    t = t or {}
+    setmetatable(t, self)
+    self.__index = self
+    return t
+end
