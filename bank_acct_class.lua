@@ -29,7 +29,7 @@ function BankAccount:new(t)
 end
 
 ------------------------------------
--- Create/Instatiate object
+-- Create/Instantiate object
 ------------------------------------
 johns_acct = BankAccount:new({
     account_number = 1234,
