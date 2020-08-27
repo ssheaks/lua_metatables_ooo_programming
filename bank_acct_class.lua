@@ -14,7 +14,7 @@ function BankAccount:deposit(amount)
     self.balance = self.balance + amount
 end
 
-function BankAccount:withdraw(ammount)
+function BankAccount:withdraw(amount)
     self.balance = self.balance - amount
 end
 
@@ -27,3 +27,19 @@ function BankAccount:new(t)
     self.__index = self
     return t
 end
+
+------------------------------------
+-- Create/Instatiate object
+------------------------------------
+johns_acct = BankAccount:new({
+    account_number = 1234,
+    holder_name = "John Smith",
+    balance = 550.50
+})
+
+print("New account object...")
+print(johns_acct.balance)
+johns_acct:deposit(400.00)
+print(johns_acct.balance)
+johns_acct:withdraw(75.00)
+print(johns_acct.balance)
